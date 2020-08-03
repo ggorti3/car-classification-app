@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fi1-xh-EfU" customClass="VideoView" customModule="car_classification_app" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tsV-A0-aFM">
@@ -26,12 +26,15 @@
                                     <constraint firstAttribute="height" constant="40" id="LYt-3O-loh"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="photo" catalog="system"/>
+                                <connections>
+                                    <action selector="selectPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sWs-dS-C0u"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="Fi1-xh-EfU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="B76-b4-f5h"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Fi1-xh-EfU" secondAttribute="bottom" id="PkQ-mQ-uod"/>
+                            <constraint firstItem="Fi1-xh-EfU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="SUQ-B3-3Dw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fi1-xh-EfU" secondAttribute="trailing" id="cqV-FP-Snc"/>
                             <constraint firstItem="tsV-A0-aFM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="dOU-FG-Txd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tsV-A0-aFM" secondAttribute="bottom" constant="20" id="ito-0q-ZbI"/>
@@ -46,7 +49,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="127"/>
+            <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
+        </scene>
+        <!--View Controller2-->
+        <scene sceneID="ZdI-ai-quL">
+            <objects>
+                <viewController storyboardIdentifier="PictureScreen" id="4e2-d9-0SM" customClass="ViewController2" customModule="car_classification_app" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Vh-MQ-DWw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="bhY-1T-irs"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IN9-Ge-zDP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1059" y="131"/>
         </scene>
     </scenes>
     <resources>

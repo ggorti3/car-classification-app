@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -84,8 +84,8 @@
 			isa = PBXGroup;
 			children = (
 				ACC14BF424D8A0B200174F97 /* AppDelegate.swift */,
-				ACC14C1824D8A22D00174F97 /* VideoView.swift */,
 				ACC14BF624D8A0B200174F97 /* SceneDelegate.swift */,
+				ACC14C1824D8A22D00174F97 /* VideoView.swift */,
 				ACC14BF824D8A0B200174F97 /* ViewController1.swift */,
 				AC933D5524D8AA6900A17FD3 /* ViewController2.swift */,
 				ACC14BFA24D8A0B200174F97 /* Main.storyboard */,
@@ -163,7 +163,7 @@
 				};
 			};
 			buildConfigurationList = ACC14BEC24D8A0B200174F97 /* Build configuration list for PBXProject "car-classification-app" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 11.4";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (

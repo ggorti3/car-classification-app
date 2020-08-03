@@ -14,13 +14,26 @@ class ViewController1: UIViewController, AVCapturePhotoCaptureDelegate, UIImageP
     let captureSession = AVCaptureSession()
     let cameraButton = UIButton(type: .custom)
     var image: UIImage?
-    @IBOutlet weak var videoView: videoView!
+    @IBOutlet weak var videoView: VideoView!
     @IBOutlet weak var photoSelectButton: UIButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        photoSelectButton.backgroundColor = UIColor.white
+        photoSelectButton.tintColor = UIColor.white
+        addCameraButton()
+        prepareCaptureSession()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        captureSession.startRunning()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        captureSession.stopRunning()
     }
     
     func prepareCaptureSession() {
@@ -31,7 +44,7 @@ class ViewController1: UIViewController, AVCapturePhotoCaptureDelegate, UIImageP
                                                   position: .unspecified)
             else { fatalError("Missing expected back camera device") }
         guard
-            let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice!),
+            let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice),
             captureSession.canAddInput(videoDeviceInput)
             else { print("Something went wrong configuring AVCaptureDeviceInput"); return }
         captureSession.addInput(videoDeviceInput)
@@ -89,14 +102,34 @@ class ViewController1: UIViewController, AVCapturePhotoCaptureDelegate, UIImageP
     func goToPictureScreen() {
         DispatchQueue.main.async {
             guard
-                let pictureScreen = storyboard?.instantiateViewController(identifier: "PictureScreen") as! ViewController2?
+                let pictureScreen = self.storyboard?.instantiateViewController(identifier: "PictureScreen") as! ViewController2?
                 else { return }
             pictureScreen.image = self.image
             pictureScreen.modalPresentationStyle = .fullScreen
-            present(pictureScreen, animated: true, completion: nil)
+            self.present(pictureScreen, animated: true, completion: nil)
         }
     }
 
+    @IBAction func selectPhoto(_ sender: UIButton) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.modalPresentationStyle = .fullScreen
+        imagePickerController.sourceType = .photoLibrary
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        // Dismiss the picker if the user canceled.
+        dismiss(animated: true, completion: nil)
+    }
 
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")}
+        self.image = selectedImage
+        dismiss(animated: true, completion: nil)
+        goToPictureScreen()
+    }
+    
+    
 }
 
