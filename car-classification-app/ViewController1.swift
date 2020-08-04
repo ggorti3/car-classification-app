@@ -11,13 +11,14 @@ import AVFoundation
 
 class ViewController1: UIViewController, AVCapturePhotoCaptureDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
     
+    //MARK: Properties
     let captureSession = AVCaptureSession()
     let cameraButton = UIButton(type: .custom)
     var image: UIImage?
     @IBOutlet weak var videoView: VideoView!
     @IBOutlet weak var photoSelectButton: UIButton!
     
-
+    //MARK: View Cycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -36,6 +37,7 @@ class ViewController1: UIViewController, AVCapturePhotoCaptureDelegate, UIImageP
         captureSession.stopRunning()
     }
     
+    //MARK: Video and Photos
     func prepareCaptureSession() {
         captureSession.beginConfiguration()
         guard
@@ -86,30 +88,14 @@ class ViewController1: UIViewController, AVCapturePhotoCaptureDelegate, UIImageP
     
     @objc func pressCameraButton() {
         // this will take a photo, then navigate to another view controller
-        let serialQueue = DispatchQueue(label: "photoQueue")
-        serialQueue.async {
             self.capturePhoto()
-        }
-        serialQueue.async {
-            self.goToPictureScreen()
-        }
     }
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
-        image = UIImage(data: photo.fileDataRepresentation()!)
+        self.image = UIImage(data: photo.fileDataRepresentation()!)
+        self.goToPictureScreen()
     }
     
-    func goToPictureScreen() {
-        DispatchQueue.main.async {
-            guard
-                let pictureScreen = self.storyboard?.instantiateViewController(identifier: "PictureScreen") as! ViewController2?
-                else { return }
-            pictureScreen.image = self.image
-            pictureScreen.modalPresentationStyle = .fullScreen
-            self.present(pictureScreen, animated: true, completion: nil)
-        }
-    }
-
     @IBAction func selectPhoto(_ sender: UIButton) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.modalPresentationStyle = .fullScreen
@@ -128,6 +114,16 @@ class ViewController1: UIViewController, AVCapturePhotoCaptureDelegate, UIImageP
         self.image = selectedImage
         dismiss(animated: true, completion: nil)
         goToPictureScreen()
+    }
+    
+    //MARK: Navigation
+    func goToPictureScreen() {
+        guard
+            let pictureScreen = self.storyboard?.instantiateViewController(identifier: "PictureScreen") as! ViewController2?
+            else { print("PictureScreen could not be loaded"); return }
+        pictureScreen.image = self.image
+        pictureScreen.modalPresentationStyle = .fullScreen
+        self.present(pictureScreen, animated: true, completion: nil)
     }
     
     
