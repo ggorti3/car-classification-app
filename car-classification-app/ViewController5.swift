@@ -34,11 +34,11 @@ class ViewController5: UIViewController {
     }
     
     func makePrediction() {
-        let model = honda_resnet34_1().model
+        let model = honda_toyota_resnet34_1().model
         let scaledImage = croppedImage?.scaleImage(toSize: CGSize(width: 128, height: 128))
         let cvImage = buffer(from: scaledImage!)
         do {
-            let out = try model.prediction(from: honda_resnet34_1Input(input_1: cvImage!))
+            let out = try model.prediction(from: honda_toyota_resnet34_1Input(input_1: cvImage!))
             let resultFV = out.featureValue(for: "1139")
             let resultDict = resultFV?.dictionaryValue
             var confArray = [Double]()

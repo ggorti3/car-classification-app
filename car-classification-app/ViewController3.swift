@@ -11,7 +11,7 @@ import TOCropViewController
 
 class ViewController3: UIViewController, TOCropViewControllerDelegate {
     
-    var rootController: ViewController1?
+    weak var rootController: ViewController1?
     var image: UIImage?
     var croppedImage: UIImage?
     var first: Bool = true

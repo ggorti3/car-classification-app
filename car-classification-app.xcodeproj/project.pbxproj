@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AC933D5624D8AA6900A17FD3 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC933D5524D8AA6900A17FD3 /* ViewController2.swift */; };
 		ACC053E824D8F63600F11A9C /* ViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC053E724D8F63600F11A9C /* ViewController3.swift */; };
 		ACC053EB24D8FAC800F11A9C /* TOCropViewController in Frameworks */ = {isa = PBXBuildFile; productRef = ACC053EA24D8FAC800F11A9C /* TOCropViewController */; };
 		ACC053ED24D9054500F11A9C /* ViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC053EC24D9054500F11A9C /* ViewController4.swift */; };
 		ACC053EF24D9055100F11A9C /* ViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC053EE24D9055100F11A9C /* ViewController5.swift */; };
-		ACC053F124D9157C00F11A9C /* honda_resnet34_1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = ACC053F024D9157C00F11A9C /* honda_resnet34_1.mlmodel */; };
+		ACC053F324DA78E300F11A9C /* honda_toyota_resnet34_1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = ACC053F224DA78E300F11A9C /* honda_toyota_resnet34_1.mlmodel */; };
 		ACC14BF524D8A0B200174F97 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC14BF424D8A0B200174F97 /* AppDelegate.swift */; };
 		ACC14BF724D8A0B200174F97 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC14BF624D8A0B200174F97 /* SceneDelegate.swift */; };
 		ACC14BF924D8A0B200174F97 /* ViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC14BF824D8A0B200174F97 /* ViewController1.swift */; };
@@ -34,11 +33,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		AC933D5524D8AA6900A17FD3 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		ACC053E724D8F63600F11A9C /* ViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController3.swift; sourceTree = "<group>"; };
 		ACC053EC24D9054500F11A9C /* ViewController4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController4.swift; sourceTree = "<group>"; };
 		ACC053EE24D9055100F11A9C /* ViewController5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController5.swift; sourceTree = "<group>"; };
-		ACC053F024D9157C00F11A9C /* honda_resnet34_1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = honda_resnet34_1.mlmodel; path = ../../../mlmodels/honda_resnet34_1.mlmodel; sourceTree = "<group>"; };
+		ACC053F224DA78E300F11A9C /* honda_toyota_resnet34_1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = honda_toyota_resnet34_1.mlmodel; path = ../../../mlmodels/honda_toyota_resnet34_1.mlmodel; sourceTree = "<group>"; };
 		ACC14BF124D8A0B200174F97 /* car-classification-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "car-classification-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC14BF424D8A0B200174F97 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACC14BF624D8A0B200174F97 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,12 +95,11 @@
 				ACC14BF624D8A0B200174F97 /* SceneDelegate.swift */,
 				ACC14C1824D8A22D00174F97 /* VideoView.swift */,
 				ACC14BF824D8A0B200174F97 /* ViewController1.swift */,
-				AC933D5524D8AA6900A17FD3 /* ViewController2.swift */,
 				ACC053E724D8F63600F11A9C /* ViewController3.swift */,
 				ACC053EC24D9054500F11A9C /* ViewController4.swift */,
 				ACC053EE24D9055100F11A9C /* ViewController5.swift */,
 				ACC14BFA24D8A0B200174F97 /* Main.storyboard */,
-				ACC053F024D9157C00F11A9C /* honda_resnet34_1.mlmodel */,
+				ACC053F224DA78E300F11A9C /* honda_toyota_resnet34_1.mlmodel */,
 				ACC14BFD24D8A0B300174F97 /* Assets.xcassets */,
 				ACC14BFF24D8A0B300174F97 /* LaunchScreen.storyboard */,
 				ACC14C0224D8A0B300174F97 /* Info.plist */,
@@ -226,11 +223,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC933D5624D8AA6900A17FD3 /* ViewController2.swift in Sources */,
 				ACC053ED24D9054500F11A9C /* ViewController4.swift in Sources */,
 				ACC14C1924D8A22D00174F97 /* VideoView.swift in Sources */,
-				ACC053F124D9157C00F11A9C /* honda_resnet34_1.mlmodel in Sources */,
 				ACC053E824D8F63600F11A9C /* ViewController3.swift in Sources */,
+				ACC053F324DA78E300F11A9C /* honda_toyota_resnet34_1.mlmodel in Sources */,
 				ACC053EF24D9055100F11A9C /* ViewController5.swift in Sources */,
 				ACC14BF924D8A0B200174F97 /* ViewController1.swift in Sources */,
 				ACC14BF524D8A0B200174F97 /* AppDelegate.swift in Sources */,

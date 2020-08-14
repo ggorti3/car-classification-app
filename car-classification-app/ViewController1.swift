@@ -93,7 +93,7 @@ class ViewController1: UIViewController, AVCapturePhotoCaptureDelegate, UIImageP
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         self.image = UIImage(data: photo.fileDataRepresentation()!)
-        self.goToPictureScreen()
+        self.goToCropScreen()
     }
     
     @IBAction func selectPhoto(_ sender: UIButton) {
@@ -113,17 +113,19 @@ class ViewController1: UIViewController, AVCapturePhotoCaptureDelegate, UIImageP
         guard let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")}
         self.image = selectedImage
         dismiss(animated: true, completion: nil)
-        goToPictureScreen()
+        goToCropScreen()
     }
     
     //MARK: Navigation
-    func goToPictureScreen() {
+    
+    func goToCropScreen() {
         guard
-            let pictureScreen = self.storyboard?.instantiateViewController(identifier: "PictureScreen") as! ViewController2?
+            let cropScreen = self.storyboard?.instantiateViewController(identifier: "CropScreen") as! ViewController3?
             else { print("PictureScreen could not be loaded"); return }
-        pictureScreen.image = self.image
-        pictureScreen.modalPresentationStyle = .fullScreen
-        self.present(pictureScreen, animated: true, completion: nil)
+        cropScreen.image = self.image
+        cropScreen.modalPresentationStyle = .fullScreen
+        cropScreen.rootController = self
+        self.present(cropScreen, animated: true, completion: nil)
     }
     
     
