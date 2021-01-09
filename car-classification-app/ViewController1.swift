@@ -13,6 +13,7 @@ class ViewController1: UIViewController, AVCapturePhotoCaptureDelegate, UIImageP
     
     //MARK: Properties
     let captureSession = AVCaptureSession()
+    var canCapture: Bool = false
     let cameraButton = UIButton(type: .custom)
     var image: UIImage?
     @IBOutlet weak var videoView: VideoView!
@@ -24,41 +25,46 @@ class ViewController1: UIViewController, AVCapturePhotoCaptureDelegate, UIImageP
         // Do any additional setup after loading the view.
         photoSelectButton.tintColor = UIColor.white
         addCameraButton()
-        prepareCaptureSession()
+        canCapture = prepareCaptureSession()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        captureSession.startRunning()
+        if canCapture {
+            captureSession.startRunning()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        captureSession.stopRunning()
+        if canCapture {
+            captureSession.stopRunning()
+        }
     }
     
     //MARK: Video and Photos
-    func prepareCaptureSession() {
+    func prepareCaptureSession() -> Bool {
         captureSession.beginConfiguration()
         guard
             let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera,
                                                   for: .video,
                                                   position: .unspecified)
-            else { fatalError("Missing expected back camera device") }
+        else { print("Missing expected back camera device"); return false }
         guard
             let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice),
             captureSession.canAddInput(videoDeviceInput)
-            else { print("Something went wrong configuring AVCaptureDeviceInput"); return }
+            else { print("Something went wrong configuring AVCaptureDeviceInput"); return false}
         captureSession.addInput(videoDeviceInput)
         videoView.videoPreviewLayer.session = captureSession
         videoView.videoPreviewLayer.videoGravity = .resizeAspectFill
         
         let photoOutput = AVCapturePhotoOutput()
-        guard captureSession.canAddOutput(photoOutput) else { print("Something went wrong configuring AVCaptureDeviceOutput") ; return }
+        guard captureSession.canAddOutput(photoOutput) else { print("Something went wrong configuring AVCaptureDeviceOutput") ; return false}
         captureSession.sessionPreset = .photo
         captureSession.addOutput(photoOutput)
 
         captureSession.commitConfiguration()
+        return true
     }
     
     func addCameraButton() {
