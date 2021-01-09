@@ -10,10 +10,12 @@ Currently, the only way to use the app is to clone this repository in xcode then
 # Usage
 Take pictures of a car, or choose picture from your library.
 
-(insert image)
+<img src="./sample_images/IMG_4089.PNG" width="250">
 
-Then, crop the box around the car, and the app will predict the make and model of the vehicle.
+Then, crop the box around the car.
 
-(insert image)
+<img src="./sample_images/IMG_4091.PNG" width="250">
 
-<img src="./sample_images/IMG_4085.PNG" width="250">
+The app will then predict make and model of the car with confidence scores.
+
+<img src="./sample_images/IMG_4092.PNG" width="250">
