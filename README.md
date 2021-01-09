@@ -8,7 +8,7 @@ Uses a neural network to accurately classify images of cars by make and model. T
 Currently, the only way to use the app is to clone this repository in xcode then download onto a device.
 
 # Usage
-Take pictures of a car, or choose picture from your library.
+Take pictures of a car, or choose a picture from your library.
 
 <img src="./sample_images/IMG_4089.PNG" width="250">
 
