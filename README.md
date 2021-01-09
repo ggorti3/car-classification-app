@@ -16,4 +16,4 @@ Then, crop the box around the car, and the app will predict the make and model o
 
 (insert image)
 
-(insert image)
+<img src="./sample_images/IMG_4085.PNG" width="250">
